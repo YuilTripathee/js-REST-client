@@ -1,0 +1,56 @@
+{
+    "data": {
+        "time": {
+            "updated": "Oct 10, 2019 06:59:00 UTC",
+            "updatedISO": "2019-10-10T06:59:00+00:00",
+            "updateduk": "Oct 10, 2019 at 07:59 BST"
+        },
+        "disclaimer": "This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org",
+        "chartName": "Bitcoin",
+        "bpi": {
+            "USD": {
+                "code": "USD",
+                "symbol": "&#36;",
+                "rate": "8,615.2167",
+                "description": "United States Dollar",
+                "rate_float": 8615.2167
+            },
+            "GBP": {
+                "code": "GBP",
+                "symbol": "&pound;",
+                "rate": "7,046.2220",
+                "description": "British Pound Sterling",
+                "rate_float": 7046.222
+            },
+            "EUR": {
+                "code": "EUR",
+                "symbol": "&euro;",
+                "rate": "7,840.6398",
+                "description": "Euro",
+                "rate_float": 7840.6398
+            }
+        }
+    },
+    "status": 200,
+    "statusText": "",
+    "headers": {
+        "content-type": "application/javascript",
+        "cache-control": "max-age=15",
+        "content-length": "672",
+        "expires": "Thu, 10 Oct 2019 07:00:07 UTC"
+    },
+    "config": {
+        "transformRequest": {},
+        "transformResponse": {},
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "headers": {
+            "Accept": "application/json, text/plain, */*"
+        },
+        "method": "get",
+        "url": "https://api.coindesk.com/v1/bpi/currentprice.json"
+    },
+    "request": {}
+}
