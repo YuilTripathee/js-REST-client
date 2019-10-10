@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS REST Client</title>
+    <!-- Referring VUE.JS from CDN and axios -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!-- Hello world testing -->
+    <h1>Currrent Price of Bitcoin in USD</h1>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: null,
+            },
+            mounted() {
+                axios
+                    .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                    .then(response => (this.message = '$' + response.data.bpi.USD.rate_float)) // data.bpi.USD.rate_float
+            }
+        }
+)
+    </script>
+
+    <!-- Testing for iterations -->
+    <div id="app1">
+        <h1>Bitcoin Price Index</h1>
+        <div v-for="currency in info">
+            {{ currency.description }}:
+            <span>
+                <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
+            </span>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app1',
+            data: {
+                info: null
+            },
+            filters: {
+                currencydecimal(value) {
+                    return value.toFixed(2)
+                }
+            },
+            mounted() {
+                axios
+                    .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                    .then(response => (this.info = response.data.bpi))
+            }
+        }
+        )
+    </script>
+</body>
+
+</html>
+
+<!-- Reference for API consumption: https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html -->
+<!-- Reference for list rendering: https://vuejs.org/v2/guide/list.html -->
